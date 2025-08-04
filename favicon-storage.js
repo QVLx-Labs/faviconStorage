@@ -9,6 +9,9 @@
 
   Uses AES-GCM encryption with a randomly generated, non-extractable CryptoKey per page load.
 
+  TODO: Can hook this up to the full VM and all opcodes of the compiler. But I'm thinking it
+        over whether that's a good idea. Let me know your thoughts.
+
   $t@$h, QVLx Labs
 */
 
