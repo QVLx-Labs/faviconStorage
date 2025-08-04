@@ -18,8 +18,6 @@ No one can extract anything without reverse-engineering the interpreter and exec
 
 Enjoy.
 
-The combination of 4 main CSCIs: 1) Favicon Compiler, 2) Favicon VM Runtime, 3) Favicon Restorer, 4) Favicon Storage
-
 Passes tests:
 Running faviconStorage tests...
 vm-rt:20 [1] setItem() → demoKey = hello world. Going to keep writing. Why not????
