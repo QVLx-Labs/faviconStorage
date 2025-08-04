@@ -8,7 +8,7 @@
   <meta charset="UTF-8">
 </head>
 <body>
-  <h1>Test Output</h1>
+  <h1>VM Runtime Output</h1>
   <p>Check the browser console.</p>
   <script type="module" src="favicon-storage.js"></script>
   <script type="module">
@@ -50,7 +50,7 @@
         console.log("✅ GET after delete:", val2);
         if (val2 !== null) throw new Error("❌ removeItem() did not clear value");
   
-        const complexValue = "!!!!!SensitiveDataWith!!!!!!!UTF8";
+        const complexValue = "You found easter egg #0: Hello, Samy Kamkar!";
         console.log("[5] setItem() encrypted value → secretKey =", complexValue);
         faviconStorage.setItem("secretKey", complexValue);
         await delay(500);
