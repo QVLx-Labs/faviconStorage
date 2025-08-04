@@ -1,0 +1,87 @@
+<!-- $t@$h -->
+<!-- Tests the exposed API. Raw instructions checked in a different set of tests -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FaviconStorage Test Runner</title>
+  <link rel="icon" type="image/png" href="/test.png">
+  <meta charset="UTF-8">
+</head>
+<body>
+  <h1>Test Output</h1>
+  <p>Check the browser console.</p>
+  <script type="module" src="favicon-storage.js"></script>
+  <script type="module">
+    console.log("Running faviconStorage tests...");
+  
+    async function runTests() {
+      try {
+        const testString1 = "hello world. Going to keep writing. Why not????";
+        console.log("[1] setItem() → demoKey =", testString1);
+        faviconStorage.setItem("demoKey", testString1);
+        await delay(500);
+  
+        console.log("[2] getItem() → demoKey");
+        const val1 = await faviconStorage.getItem("demoKey");
+        if (val1 !== null) {
+          console.log("Length:", val1.length);
+          console.log("Raw chars:", Array.from(val1).map(c => c.charCodeAt(0)));
+        } else {
+          console.log("Value is null");
+        }
+        console.log("Expected chars:", Array.from(testString1).map(c => c.charCodeAt(0)));
+        console.log("Exact match?", val1 === testString1);
+        console.log("✅ GET result:", val1);
+        if (val1 !== testString1) throw new Error("❌ Decryption failed or wrong value");
+  
+        console.log("[3] removeItem() → demoKey");
+        faviconStorage.removeItem("demoKey");
+        await delay(500);
+  
+        console.log("[4] getItem() after remove → demoKey");
+        const val2 = await faviconStorage.getItem("demoKey");
+        if (val2 !== null) {
+          console.log("Length:", val2.length);
+          console.log("Raw chars:", Array.from(val2).map(c => c.charCodeAt(0)));
+        } else {
+          console.log("Value is null");
+        }
+        console.log("Exact match?", val2 === null);
+        console.log("✅ GET after delete:", val2);
+        if (val2 !== null) throw new Error("❌ removeItem() did not clear value");
+  
+        const complexValue = "!!!!!SensitiveDataWith!!!!!!!UTF8";
+        console.log("[5] setItem() encrypted value → secretKey =", complexValue);
+        faviconStorage.setItem("secretKey", complexValue);
+        await delay(500);
+  
+        console.log("[6] getItem() decrypted value");
+        const val3 = await faviconStorage.getItem("secretKey");
+        if (val3 !== null) {
+          console.log("Length:", val3.length);
+          console.log("Raw chars:", Array.from(val3).map(c => c.charCodeAt(0)));
+        } else {
+          console.log("Value is null");
+        }
+        console.log("Expected chars:", Array.from(complexValue).map(c => c.charCodeAt(0)));
+        console.log("Exact match?", val3 === complexValue);
+        console.log("✅ Decrypted value:", val3);
+        if (val3 !== complexValue) throw new Error("❌ Encrypted/decrypted mismatch");
+  
+        console.log("[7] clear()");
+        faviconStorage.clear();
+  
+        console.log("✅ All tests passed.");
+      } catch (err) {
+        console.error("❌ Test failure:", err);
+      }
+    }
+  
+    function delay(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+  
+    setTimeout(runTests, 250);
+  </script>
+</body>
+</html>
