@@ -15,6 +15,7 @@ Completely invisible to browser storage APIs or common fingerprinting tools.
 Custom VM interpreter
 Only your own bytecode can access or modify the data.
 No one can extract anything without reverse-engineering the interpreter and executing controlled payloads.
+If storage is used, effectively busts the cache.
 
 Enjoy.
 
