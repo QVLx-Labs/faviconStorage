@@ -20,6 +20,7 @@ May also want to see these related explorations:
   https://github.com/STashakkori/MalwareDetection/tree/main/FaviconBeacon
   https://github.com/STashakkori/Favicon-Stegostealth
   https://github.com/STashakkori/Remediations/blob/main/favicon-restore.js
+  https://github.com/STashakkori/Utilities/blob/main/generatePNG.html
 
 Enjoy.
 
