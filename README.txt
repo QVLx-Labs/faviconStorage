@@ -12,11 +12,11 @@ No risk of leftover keys or data in browser storage between sessions.
 Opaque channel (steganography)
 Data hidden in favicon alpha channel using a custom VM.
 Completely invisible to browser storage APIs or common fingerprinting tools.
-Custom VM interpreter
 Only your own bytecode can access or modify the data.
 No one can extract anything without reverse-engineering the interpreter and executing controlled payloads.
 If storage is used, effectively busts the cache.
-May also want to see these related explorations:
+
+You may also want to see these related explorations:
   https://github.com/STashakkori/MalwareDetection/tree/main/FaviconBeacon
   https://github.com/STashakkori/Favicon-Stegostealth
   https://github.com/STashakkori/Remediations/blob/main/favicon-restore.js
